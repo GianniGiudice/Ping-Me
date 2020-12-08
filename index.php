@@ -2,5 +2,5 @@
 
 require 'Controller/Router.php';
 
-$routeur = new Router();
-$routeur->routerRequest();
+$router = new Router();
+$router->routerRequest();

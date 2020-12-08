@@ -13,9 +13,10 @@ class Router {
     public function routerRequest() {
         try {
             if (isset($_GET['action'])) {
-                // Aucune action définie : affichage de l'accueil
-                $this->homeController->accueil();
+
             }
+            // Aucune action définie : affichage de l'accueil
+            $this->homeController->index();
         }
         catch (Exception $e) {
             $this->error($e->getMessage());

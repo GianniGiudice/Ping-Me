@@ -37,7 +37,7 @@ abstract class Model {
         if ($this->db == null) {
             // Création de la connexion
             $this->db = new PDO('mysql:host=localhost;dbname=pingme;charset=utf8',
-                    'root', '', [
+                    'root', 'P=vPyjd,1', [
                         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
                     ]);
         }
