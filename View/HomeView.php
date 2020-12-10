@@ -15,7 +15,7 @@
                 <h1><i class="fas fa-sign-in-alt"></i> Connexion</h1>
 
                 <div class="form-block border border-top-0 rounded p-3">
-                    <form action="connexion.php" method="post">
+                    <form action="index.php?action=connexion" method="post">
                         <table class="w-100">
                             <tr>
                                 <td class="w-50 font-weight-bold">Adresse mail</td>
@@ -27,7 +27,7 @@
                             </tr>
                         </table>
                         <p>
-                            <input type="submit" value="Valider" class="btn btn-ping mt-3">
+                            <input type="submit" name="signin" value="Valider" class="btn btn-ping mt-3">
                         </p>
                     </form>
                 </div>
@@ -39,7 +39,7 @@
                 <h2><i class="fas fa-user-plus"></i> Inscription</h2>
 
                 <div class="form-block border border-top-0 rounded p-3">
-                    <form action="inscription.php" method="post">
+                    <form action="index.php?action=inscription" method="post">
                         <table class="w-100">
                             <tr>
                                 <td class="w-50 font-weight-bold">Nom</td>
@@ -53,9 +53,17 @@
                                 <td class="w-50 font-weight-bold">Adresse mail</td>
                                 <td class="w-50"><input type="email" name="email" /></td>
                             </tr>
+                            <tr>
+                                <td class="w-50 font-weight-bold">Mot de passe</td>
+                                <td class="w-50"><input type="password" name="password" /></td>
+                            </tr>
+                            <tr>
+                                <td class="w-50 font-weight-bold">Confirmation</td>
+                                <td class="w-50"><input type="password" name="confirm" /></td>
+                            </tr>
                         </table>
                         <p>
-                            <input type="submit" value="Valider" class="btn btn-ping mt-3">
+                            <input type="submit" name="signup" value="Valider" class="btn btn-ping mt-3">
                         </p>
                     </form>
                 </div>
