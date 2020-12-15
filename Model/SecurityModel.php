@@ -8,11 +8,11 @@ class SecurityModel extends Model
      * @param string $mail_address
      * @return bool
      */
-    public function checkExistingUser(string $mail_address): bool
+    public function userIsFree(string $mail_address): bool
     {
         $sql = 'SELECT id FROM user WHERE email = ?';
         $result = $this->executeRequest($sql, [ $mail_address ]);
 
-        return ($result->rowCount() > 0);
+        return ($result->rowCount() == 0);
     }
 }

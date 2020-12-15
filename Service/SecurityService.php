@@ -31,9 +31,9 @@ class SecurityService extends Service
                     }
                     $this->setError('Mauvais format d\'adresse mail.');
                 }
-                $this->setError('Mauvais format de nom de famille.');
+                $this->setError('Le nom doit contenir entre 2 et 12 caractères alphabétiques.');
             }
-            $this->setError('Mauvais format de prénom.');
+            $this->setError('Le prénom doit contenir entre 2 et 12 caractères alphabétiques.');
         }
         return false;
     }

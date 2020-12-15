@@ -17,12 +17,16 @@ class SecurityController
 
     public function signup()
     {
-        $this->securityService->checkSignup();
+        if ($this->securityService->checkSignup() &&
+            $this->securityModel->userIsFree($_POST['email'])) {
 
-        $this->securityModel->checkExistingUser($_POST['email']);
-        exit(0);
-        $view = new View('Home');
-        $view->generate([]);
+            $view = new View('Home');
+            $view->generate([]);
+        }
+        else {
+            $view = new View('Home');
+            $view->generate([]);
+        }
     }
 
 }
