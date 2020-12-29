@@ -25,6 +25,9 @@ class Router
                     case 'inscription':
                         $this->securityController->signup();
                         break;
+                    case 'connexion':
+                        $this->securityController->signin();
+                        break;
                 }
             }
             else {
@@ -64,7 +67,7 @@ class Router
      */
     private function isConnected() : bool
     {
-        return (isset($_SESSION['id'])) ? (true) : (false);
+        return (isset($_SESSION['user'])) ? (true) : (false);
     }
 
 }

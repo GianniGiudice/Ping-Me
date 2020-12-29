@@ -44,6 +44,10 @@ class SecurityService extends Service
      */
     public function checkSignin(): bool
     {
+        if (isset($_POST['signin']) && isset($_POST['email']) && isset($_POST['password'])) {
+            return true;
+        }
+        $this->setError('Les champs ne sont pas remplis.');
         return false;
     }
 }

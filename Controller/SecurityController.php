@@ -34,4 +34,23 @@ class SecurityController
         }
     }
 
+    public function signin()
+    {
+        if ($this->securityService->checkSignin()) {
+            if ($this->securityModel->login($_POST['email'], $_POST['password'])) {
+                $view = new View('UserHome');
+                $_SESSION['user'] = $this->securityModel->getUser($_POST['email']);
+                $view->generate([]);
+            }
+            else {
+                $view = new View('Home');
+                $view->generate(['error' => 'Les identifiants sont incorrects.']);
+            }
+        }
+        else {
+            $view = new View('Home');
+            $view->generate(['error' => $this->securityService->getError()]);
+        }
+    }
+
 }

@@ -9,6 +9,14 @@
 </div>
 
 <div class="container-fluid mt-3">
+    <?php
+    if (isset($error)) {
+        echo '<p class="m-3"><span class="text-danger"><i class="fas fa-bug"></i> ' . $error . '</span></p>';
+    }
+    if (isset($success)) {
+        echo '<p class="m-3"><span class="text-success"><i class="fas fa-check"></i> ' . $success . '</span></p>';
+    }
+    ?>
     <div class="row">
         <div class="col-md-6 p-3">
             <div class="connection">
@@ -39,14 +47,6 @@
                 <h2><i class="fas fa-user-plus"></i> Inscription</h2>
 
                 <div class="form-block border border-top-0 rounded p-3">
-                    <?php
-                    if (isset($error)) {
-                        echo '<p class="mt-3 mb-3"><span class="text-danger"><i class="fas fa-bug"></i> ' . $error . '</span></p>';
-                    }
-                    if (isset($success)) {
-                        echo '<p class="mt-3 mb-3"><span class="text-success"><i class="fas fa-check"></i> ' . $success . '</span></p>';
-                    }
-                    ?>
                     <form action="index.php?action=inscription" method="post">
                         <table class="w-100">
                             <tr>
