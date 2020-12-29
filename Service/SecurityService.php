@@ -25,6 +25,7 @@ class SecurityService extends Service
                     // Check mail address
                     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
                         if (strlen($_POST['password']) >= 3 && $_POST['password'] == $_POST['confirm']) {
+                            $this->setSuccess('Vous êtes bien inscrit et pouvez à présent vous connecter.');
                             return true;
                         }
                         $this->setError('Le mot de passe doit contenir au moins 3 caractères et être identique à sa confirmation.');
@@ -35,6 +36,14 @@ class SecurityService extends Service
             }
             $this->setError('Le prénom doit contenir entre 2 et 12 caractères alphabétiques.');
         }
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function checkSignin(): bool
+    {
         return false;
     }
 }

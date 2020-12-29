@@ -39,6 +39,14 @@
                 <h2><i class="fas fa-user-plus"></i> Inscription</h2>
 
                 <div class="form-block border border-top-0 rounded p-3">
+                    <?php
+                    if (isset($error)) {
+                        echo '<p class="mt-3 mb-3"><span class="text-danger"><i class="fas fa-bug"></i> ' . $error . '</span></p>';
+                    }
+                    if (isset($success)) {
+                        echo '<p class="mt-3 mb-3"><span class="text-success"><i class="fas fa-check"></i> ' . $success . '</span></p>';
+                    }
+                    ?>
                     <form action="index.php?action=inscription" method="post">
                         <table class="w-100">
                             <tr>

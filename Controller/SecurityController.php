@@ -17,15 +17,20 @@ class SecurityController
 
     public function signup()
     {
-        if ($this->securityService->checkSignup() &&
-            $this->securityModel->userIsFree($_POST['email'])) {
-
-            $view = new View('Home');
-            $view->generate([]);
+        if ($this->securityService->checkSignup()) {
+            if ($this->securityModel->userIsFree($_POST['email'])) {
+                $this->securityModel->register($_POST);
+                $view = new View('Home');
+                $view->generate(['success' => $this->securityService->getSuccess()]);
+            }
+            else {
+                $view = new View('Home');
+                $view->generate(['error' => 'Cette adresse mail est déjà prise.']);
+            }
         }
         else {
             $view = new View('Home');
-            $view->generate([]);
+            $view->generate(['error' => $this->securityService->getError()]);
         }
     }
 
