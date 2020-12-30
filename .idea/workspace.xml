@@ -23,9 +23,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/Router.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/SecurityModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/SecurityModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service/SecurityService.php" beforeDir="false" afterPath="$PROJECT_DIR$/Service/SecurityService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/HomeView.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/HomeView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/CSS/template.css" beforeDir="false" afterPath="$PROJECT_DIR$/Public/CSS/template.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/UserHomeView.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/UserHomeView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/View.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/template.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/template.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,10 +47,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Controller" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Model" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Model" />
       <recent name="$PROJECT_DIR$/Controller" />
     </key>
   </component>
@@ -64,7 +66,8 @@
       <workItem from="1607451799620" duration="8416000" />
       <workItem from="1607630623748" duration="4604000" />
       <workItem from="1608070536198" duration="3057000" />
-      <workItem from="1609276153342" duration="5817000" />
+      <workItem from="1609276153342" duration="5848000" />
+      <workItem from="1609348300105" duration="11768000" />
     </task>
     <servers />
   </component>
@@ -88,10 +91,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="617" y="355" width="676" height="403" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1609282597126" />
-    <state x="754" y="273" width="417" height="568" key="NewPhpClassDialog" timestamp="1607633551950">
+    <state x="754" y="273" width="417" height="568" key="NewPhpClassDialog" timestamp="1609361657227">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="754" y="273" width="417" height="568" key="NewPhpClassDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1607633551950" />
+    <state x="754" y="273" width="417" height="568" key="NewPhpClassDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1609361657227" />
     <state x="651" y="292" width="618" height="522" key="find.popup" timestamp="1609278071339">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>

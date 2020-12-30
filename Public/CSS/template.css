@@ -38,8 +38,38 @@ input {
     font-weight: bold;
 }
 
-.text-ping {
+.bg-ping {
+    background: #DD5A50;
+    color: #fff;
+}
+
+.bg-shop {
+    background: #337D87;
+    color: #fff;
+}
+
+.bg-battle {
+    background: #9DCD4A;
+    color: #fff;
+}
+
+.text-ping, .text-ping:hover {
     color: #DD5A50;
+}
+
+/* Card */
+.card .card-title {
+    font-weight: bold;
+}
+
+.card .card-text {
+    margin-top: 20px;
+}
+
+/* List group */
+.list-group {
+    color: #212529;
+    font-weight: bold;
 }
 
 /* HOME */

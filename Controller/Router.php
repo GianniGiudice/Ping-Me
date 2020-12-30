@@ -2,40 +2,58 @@
 
 require_once 'Controller/HomeController.php';
 require_once 'Controller/SecurityController.php';
+require_once 'Controller/UserController.php';
 require_once 'View/View.php';
 
 class Router
 {
     private $homeController;
     private $securityController;
+    private $userController;
 
     public function __construct()
     {
         $this->homeController = new HomeController();
         $this->securityController = new SecurityController();
+        $this->userController = new UserController();
     }
 
     // Route une requête entrante : exécution l'action associée
     public function routerRequest()
     {
         try {
-            if (isset($_GET['action'])) {
-                // Gestion des différentes actions
-                switch ($_GET['action']) {
-                    case 'inscription':
-                        $this->securityController->signup();
-                        break;
-                    case 'connexion':
-                        $this->securityController->signin();
-                        break;
+            // Visiteur
+            if (!$this->isConnected()) {
+                if (isset($_GET['action'])) {
+                    switch ($_GET['action']) {
+                        case 'inscription':
+                            $this->securityController->signup();
+                            break;
+                        case 'connexion':
+                            $this->securityController->signin();
+                            break;
+                    }
+                }
+                else {
+                    $this->homeController->index();
                 }
             }
+            // Connecté
             else {
-                // Aucune action définie : affichage de l'accueil
-                if ($this->isConnected()) {
-
-                } else {
-                    $this->homeController->index();
+                if (isset($_GET['action'])) {
+                    switch ($_GET['action']) {
+                        case 'atelier':
+                            $this->userController->workshop();
+                            break;
+                        case 'logout':
+                            session_destroy();
+                            unset($_SESSION['user']);
+                            header('location: index.php');
+                            break;
+                    }
+                }
+                else {
+                    $this->userController->index();
                 }
             }
         }

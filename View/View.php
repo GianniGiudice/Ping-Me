@@ -18,9 +18,16 @@ class View {
         // Génération de la partie spécifique de la vue
         $content = $this->generateFile($this->filename, $data);
         // Génération du template commun utilisant la partie spécifique
-        $view = $this->generateFile('View/template.php', [
-                'title' => $this->title, 'content' => $content
-        ]);
+        if (isset($_SESSION['user'])) {
+            $view = $this->generateFile('View/template.php', [
+                'title' => $this->title, 'content' => $content, 'breadcrumb' => true
+            ]);
+        }
+        else {
+            $view = $this->generateFile('View/template.php', [
+                'title' => $this->title, 'content' => $content, 'breadcrumb' => false
+            ]);
+        }
         // Renvoi de la vue au navigateur
         echo $view;
     }

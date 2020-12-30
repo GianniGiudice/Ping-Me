@@ -31,6 +31,18 @@
             </div>
         </nav>
 
+        <?php
+        if ($breadcrumb) {
+        ?>
+
+            <div class="float-end mt-3 me-3">
+                <a href="index.php?action=logout" class="text-ping"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+            </div>
+
+        <?php
+        }
+        ?>
+
         <?= $content ?>
 
         <!-- Optional JavaScript; choose one of the two! -->
