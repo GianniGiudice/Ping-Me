@@ -1,6 +1,14 @@
 <?php $this->title = 'Espace pongiste'; ?>
 
 <div class="container-fluid mt-5">
+    <?php
+    if (isset($error)) {
+        echo '<p class="m-3"><span class="text-danger"><i class="fas fa-bug"></i> ' . $error . '</span></p>';
+    }
+    if (isset($success)) {
+        echo '<p class="m-3"><span class="text-success"><i class="fas fa-check"></i> ' . $success . '</span></p>';
+    }
+    ?>
     <div class="row">
         <div class="col-md-4">
             <div class="card mb-3 bg-ping">

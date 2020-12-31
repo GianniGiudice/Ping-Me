@@ -40,7 +40,7 @@ class WorkshopService extends Service
                 $sum += intval($form[$field]);
             }
             if ($sum != 15) {
-                $this->setError('La somme ne doit pas excéder 15 pour chaque catégorie d\'équipement.');
+                $this->setError('La somme doit égaler 15 pour chaque catégorie d\'équipement.');
                 return false;
             }
         }

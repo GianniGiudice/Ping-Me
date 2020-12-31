@@ -8,7 +8,7 @@
 abstract class Model {
 
     /** Objet PDO d'accès à la BD */
-    private $db;
+    protected $db;
 
     /**
      * Exécute une requête SQL éventuellement paramétrée

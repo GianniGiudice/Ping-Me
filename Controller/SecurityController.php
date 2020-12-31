@@ -44,8 +44,10 @@ class SecurityController
                 $view = new View('UserHome');
                 $_SESSION['user'] = $this->securityModel->getUser($_POST['email']);
                 $_SESSION['racket'] = $this->userModel->getRacket($_SESSION['user']['id']);
-                $_SESSION['red'] = $this->userModel->getRedSide($_SESSION['racket']['id']);
-                $_SESSION['black'] = $this->userModel->getBlackSide($_SESSION['racket']['id']);
+                if ($_SESSION['racket'] != null) {
+                    $_SESSION['red'] = $this->userModel->getRedSide($_SESSION['racket']['id']);
+                    $_SESSION['black'] = $this->userModel->getBlackSide($_SESSION['racket']['id']);
+                }
                 $view->generate([]);
             }
             else {
