@@ -35,7 +35,6 @@ Ping-Me est un Site Web sur le thème du Tennis de Table. Il représente l'ébau
 
 - Inscription
 - Connexion
-- Création d'une fiche FFTT (Fédération Française de Tennis de Table)
 - Choix du matériel
 - Amélioration des compétences
 - Affrontement avec d'autres joueurs
