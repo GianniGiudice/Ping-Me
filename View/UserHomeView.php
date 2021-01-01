@@ -13,7 +13,7 @@
         <div class="col-md-4">
             <div class="card mb-3 bg-ping">
                 <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-male"></i> <?= $_SESSION['user']['firstname'] ?> <?= strtoupper($_SESSION['user']['lastname']) ?> </h5>
+                    <h5 class="card-title"><i class="fas fa-male"></i> <?= $user['firstname'] ?> <?= strtoupper($user['lastname']) ?> <span class="float-end"><span class="badge bg-dark rounded-pill"><?= $user['victories'] - $user['defeats'] ?></span></span></h5>
                     <p class="card-text">
                         <?php if ($_SESSION['racket'] !== false) { ?>
                         <span class="font-weight-bold">Raquette</span>
@@ -74,7 +74,7 @@
                         ?>
                         Vous n'avez aucun matériel.
                     <?php } ?>
-                    <p class="card-text"><small>Inscrit depuis le <?= date('d/m/Y    ', strtotime($_SESSION['user']['registration'])) ?></small></p>
+                    <p class="card-text"><small>Inscrit depuis le <?= date('d/m/Y    ', strtotime($user['registration'])) ?></small></p>
                 </div>
             </div>
         </div>
@@ -159,9 +159,22 @@
                 <div class="card-body">
                     <h5 class="card-title"><i class="fas fa-fist-raised"></i> Compétition </h5>
                     <p class="card-text">
-                        <a href="" class="text-white">Affronter un joueur</a>
+                        Le nombre affiché à droite correspond au ratio [ victoires - défaites ] du joueur.
                     </p>
-                    <p class="card-text"><small>Inscrit depuis le <?= date('d/m/Y    ', strtotime($_SESSION['user']['registration'])) ?></small></p>
+                    <ul class="list-group">
+                        <?php
+                        foreach ($others as $other) { ?>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <?= $other['firstname'] ?> <?= $other['lastname'] ?>
+                                <div>
+                                    <a href="index.php?action=competition&user_id=<?= $other['id'] ?>" class="text-ping" title="Affronter"><i class="fas fa-bolt me-2"></i></a>
+                                    <span class="badge bg-dark rounded-pill"><?= $other['victories'] - $other['defeats'] ?></span>
+                                </div>
+                            </li>
+                        <?php
+                        }
+                        ?>
+                    </ul>
                 </div>
             </div>
         </div>

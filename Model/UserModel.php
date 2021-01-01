@@ -72,4 +72,57 @@ class UserModel extends Model
         $sql = 'UPDATE black_side SET speed = ?, control = ?, rotation = ? WHERE racket_id = ?';
         $this->executeRequest($sql, [ $form['black_speed'], $form['black_control'], $form['black_rotation'], $racket['id'] ]);
     }
+
+
+    /**
+     * @param int $user_id
+     * @return array
+     */
+    public function getOtherUsers(int $user_id): array
+    {
+        $sql = 'SELECT * FROM user WHERE id != ?';
+        $result = $this->executeRequest($sql, [ $user_id ]);
+
+        return $result->fetchAll();
+    }
+
+    /**
+     * @param int $user_id
+     * @return bool
+     */
+    public function userExists(int $user_id): bool
+    {
+        $sql = 'SELECT * FROM user WHERE id = ?';
+        $result = $this->executeRequest($sql, [ $user_id ]);
+        return ($result->rowCount() != 0);
+    }
+
+    /**
+     * @param int $user_id
+     * @return mixed
+     */
+    public function getUserWithID(int $user_id)
+    {
+        $sql = 'SELECT * FROM user WHERE id = ?';
+        $result = $this->executeRequest($sql, [ $user_id ]);
+        return $result->fetch();
+    }
+
+    /**
+     * @param int $user_id
+     */
+    public function addVictory(int $user_id): void
+    {
+        $sql = 'UPDATE user SET victories = victories + 1 WHERE id = ?';
+        $this->executeRequest($sql, [ $user_id ]);
+    }
+
+    /**
+     * @param int $user_id
+     */
+    public function addDefeat(int $user_id): void
+    {
+        $sql = 'UPDATE user SET defeats = defeats + 1 WHERE id = ?';
+        $this->executeRequest($sql, [ $user_id ]);
+    }
 }

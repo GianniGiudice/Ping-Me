@@ -45,6 +45,9 @@ class Router
                         case 'atelier':
                             $this->userController->workshop();
                             break;
+                        case 'competition':
+                            $this->userController->competition();
+                            break;
                         case 'logout':
                             session_destroy();
                             unset($_SESSION['user']);
