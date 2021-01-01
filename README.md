@@ -31,6 +31,8 @@ Le sujet est le suivant : création d'un site web volontairement vulnérable (**
 
 Ping-Me est un Site Web sur le thème du Tennis de Table. Il représente l'ébauche d'un **simulateur de compétition de Tennis de Table**.
 
+Ce projet a été créé **à partir de zéro et uniquement pour le projet de Cybersécurité**.
+
 ### Fonctionnalités
 
 - Inscription
