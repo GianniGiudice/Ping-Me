@@ -66,7 +66,7 @@ Pour installer le projet, il faudra **se positionner à la racine du projet** et
 
 ```
 docker build -t "pingme:latest" .
-docker run -i -t -p "8000:80" -v ${PWD}:/var/www/html/Ping-Me --rm pingme:latest
+docker run -i -t -p "8000:80" -v ${PWD}:/var/www/html/Ping-Me -v ${PWD}/mysql:/var/lib/mysql --rm pingme:latest
 ```
 
 L'application sera alors accessible via navigateur à l'adresse suivante :
