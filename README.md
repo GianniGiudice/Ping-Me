@@ -48,3 +48,25 @@ Le site se lance via **apache**.
 #### Pourquoi ce choix
 
 Ayant l'habitude de développer sous Symfony (framework PHP), je me suis rapidement dirigé vers ce choix car c'est avant tout un sujet sur le cybersécurité et non sur le développement en soit. (je voulais donc une **technologie sur laquelle j'étais le plus à l'aise**) J'ai délaissé le framework Symfony pour ce projet car beaucoup de failles sont comblées / empêchées par le framework. En PHP natif, créer des failles est beaucoup plus simple et approprié.
+
+## Installation et utilisation
+
+### Installation
+
+Un Dockerfile est présent à la racine du projet et va permettre l'installation des dépendances du projet, à savoir :
+- Apache
+- Mysql
+- PHP
+
+Il va également créer la base de données et les tables utilisées par l'application.
+
+Pour installer le projet, il faudra **se positionner à la racine du projet** et lancer les commandes suivantes :
+
+```
+docker build -t "pingme:latest" .
+docker run -i -t -p "8000:80" -v ${PWD}:/var/www/html/Ping-Me --rm pingme:latest
+```
+
+L'application sera alors accessible via navigateur à l'adresse suivante :
+
+`127.0.0.1:8000/Ping-Me`
