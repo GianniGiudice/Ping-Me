@@ -35,8 +35,8 @@ Ping-Me est un Site Web sur le thème du Tennis de Table. Il représente l'ébau
 
 - Inscription
 - Connexion
-- Choix du matériel
-- Amélioration des compétences
+- Création / modification des données de la raquette / des revêtements
+- Visualisation d'un ratio [ victoires - défaires ]
 - Affrontement avec d'autres joueurs
 
 ### Technologies utilisées
