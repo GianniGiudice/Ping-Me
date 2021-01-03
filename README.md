@@ -86,3 +86,21 @@ L'application sera alors accessible via navigateur à l'adresse suivante :
 ### Diagramme Mermaid : Surface d'attaque
 
 <img src="mermaid-diagram.png">
+
+### Les critères DICT
+
+**Disponibilité**
+
+Il n'y a aucune information visible de la part d'un joueur sur les autres joueurs du jeu. Il peut uniquement voir la liste des autres joueurs ainsi que leur ratio [victoires - défaites]. Ce dernier pouvant indiquer si un joueur est plutôt fort ou faible, cela peut être intéressant pour le choix d'adversaire lors d'une compétition. J'estime donc que la disponibilité devrait être à **1/5**.
+
+**Intégrité**
+
+Il est très important pour un joueur que ses données (notamment le matériel) ainsi que celles des autres joueurs (ratio compétition) reste inchangé et exact car ayant peu d'informations, il est primordial que celles-ci soient les bonnes. J'estime donc que l'intégrité devrait être à **5/5**.
+
+**Confidentialité**
+
+Il est important pour un joueur de ne pas voir ses informations sur son équipement actuel dévoilées aux autres joueurs. Il serait alors trop facile aux joueurs de choisir leurs adversaires en prenant les combinaisons les plus faibles. C'est pour cette raison que j'estime que la confidentialité devrait être à **4/5**.
+
+**Traçabilité**
+
+Dans le cadre d'une application de simulation d'un joueur de tennis de table, il n'est pas essentiel d'avoir un historique des actions menées par le joueur et / ou ses adversaires. Il serait cependant intéressant pour lui de pouvoir consulter un historique de ses victoires / défaites avec les statistiques de sa raquette / de ses revêtements à chaque match afin qu'il puisse étudier quelle est la meilleure combinaison possible. C'est pour cette raison que j'estime que la traçabilité devrait être à **0/5**.
