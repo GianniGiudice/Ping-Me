@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50847f85-b945-427b-9ebe-991c3625eef1" name="Default Changelist" comment="" />
+    <list default="true" id="50847f85-b945-427b-9ebe-991c3625eef1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/Service.php" beforeDir="false" afterPath="$PROJECT_DIR$/Service/Service.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +66,7 @@
       <workItem from="1609348300105" duration="11829000" />
       <workItem from="1609436396131" duration="5742000" />
       <workItem from="1609516484356" duration="5397000" />
+      <workItem from="1609626655643" duration="5361000" />
     </task>
     <servers />
   </component>
@@ -89,6 +94,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="754" y="273" width="417" height="568" key="NewPhpClassDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1609518586471" />
+    <state x="755" y="479" width="399" height="156" key="NewPhpFileDialog" timestamp="1609628862227">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="755" y="479" width="399" height="156" key="NewPhpFileDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1609628862227" />
     <state x="651" y="292" width="618" height="522" key="find.popup" timestamp="1609278071339">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
