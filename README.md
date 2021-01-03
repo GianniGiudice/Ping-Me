@@ -64,26 +64,15 @@ Un Dockerfile est présent à la racine du projet et va permettre l'installation
 - Mysql
 - PHP
 
-Pour lancer le docker, il faudra **se positionner à la racine du projet** et lancer les commandes suivantes :
+Pour lancer le docker, il faudra **se positionner à la racine du projet** et lancer la commande suivante :
 
 ```
-docker build -t "pingme:latest" .
-docker run -i -t -p "8000:80" -v ${PWD}:/var/www/html/Ping-Me --rm pingme:latest
+docker-compose up --build
 ```
-
-Il faudra alors installer la base de données en se connectant à phpmyadmin via l'adresse suivante :
-
-`http://127.0.0.1:9000/phpmyadmin`
-
-Et s'y connecter avec l'utilisateur **root** en utilisant le mot de passe généré aléatoirement et affiché dans la console comme l'indique le screen ci-dessous :
-
-<img src="screen.png">
-
-Il faudra alors cliquer sur **Importer** et charger le script **pingme.sql** présent à la racine du projet. (ce dump va créer la base de données avec ses tables)
 
 L'application sera alors accessible via navigateur à l'adresse suivante :
 
-`127.0.0.1:8000/Ping-Me`
+`127.0.0.1:8001/Pingme`
 
 ## Sécurisation de l'application
 
