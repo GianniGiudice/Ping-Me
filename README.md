@@ -55,12 +55,16 @@ Ayant l'habitude de développer sous Symfony (framework PHP), je me suis rapidem
 
 ### Installation
 
+Il faut tout d'abord cloner le projet git via la commande suivante :
+
+`git clone https://github.com/GianniGiudice/Ping-Me.git`
+
 Un Dockerfile est présent à la racine du projet et va permettre l'installation des dépendances du projet, à savoir :
 - Apache
 - Mysql
 - PHP
 
-Pour installer le projet, il faudra **se positionner à la racine du projet** et lancer les commandes suivantes :
+Pour lancer le docker, il faudra **se positionner à la racine du projet** et lancer les commandes suivantes :
 
 ```
 docker build -t "pingme:latest" .
