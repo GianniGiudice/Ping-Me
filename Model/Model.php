@@ -12,7 +12,7 @@ abstract class Model {
 
     /**
      * Exécute une requête SQL éventuellement paramétrée
-     * 
+     *
      * @param string $sql La requête SQL
      * @param array $params Les valeurs associées à la requête
      * @return PDOStatement Le résultat renvoyé par la requête
@@ -30,14 +30,14 @@ abstract class Model {
 
     /**
      * Renvoie un objet de connexion à la BD en initialisant la connexion au besoin
-     * 
+     *
      * @return PDO L'objet PDO de connexion à la BDD
      */
     private function getDb() {
         if ($this->db == null) {
             // Création de la connexion
-            $this->db = new PDO('mysql:host=127.0.0.1;dbname=pingme;charset=utf8',
-                    'root', '', [
+            $this->db = new PDO('mysql:host=db;dbname=pingme;charset=utf8',
+                    'root', 'test', [
                         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
                     ]);
         }
