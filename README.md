@@ -55,12 +55,16 @@ Ayant l'habitude de développer sous Symfony (framework PHP), je me suis rapidem
 
 ### Installation
 
+Il faut tout d'abord cloner le projet git via la commande suivante :
+
+`git clone https://github.com/GianniGiudice/Ping-Me.git`
+
 Un Dockerfile est présent à la racine du projet et va permettre l'installation des dépendances du projet, à savoir :
 - Apache
 - Mysql
 - PHP
 
-Pour installer le projet, il faudra **se positionner à la racine du projet** et lancer les commandes suivantes :
+Pour lancer le docker, il faudra **se positionner à la racine du projet** et lancer les commandes suivantes :
 
 ```
 docker build -t "pingme:latest" .
@@ -80,3 +84,27 @@ Il faudra alors cliquer sur **Importer** et charger le script **pingme.sql** pr�
 L'application sera alors accessible via navigateur à l'adresse suivante :
 
 `127.0.0.1:8000/Ping-Me`
+
+## Sécurisation de l'application
+
+### Diagramme Mermaid : Surface d'attaque
+
+<img src="mermaid-diagram.png">
+
+### Les critères DICT
+
+**Disponibilité**
+
+Il n'y a aucune information visible de la part d'un joueur sur les autres joueurs du jeu. Il peut uniquement voir la liste des autres joueurs ainsi que leur ratio [victoires - défaites]. Ce dernier pouvant indiquer si un joueur est plutôt fort ou faible, cela peut être intéressant pour le choix d'adversaire lors d'une compétition. J'estime donc que la disponibilité devrait être à **1/5**.
+
+**Intégrité**
+
+Il est très important pour un joueur que ses données (notamment le matériel) ainsi que celles des autres joueurs (ratio compétition) restent inchangées et exactes car ayant peu d'informations, il est primordial que celles-ci soient les bonnes. J'estime donc que l'intégrité devrait être à **5/5**.
+
+**Confidentialité**
+
+Il est important pour un joueur de ne pas voir ses informations sur son équipement actuel dévoilées aux autres joueurs. Il serait alors trop facile aux joueurs de choisir leurs adversaires en prenant les combinaisons les plus faibles. C'est pour cette raison que j'estime que la confidentialité devrait être à **4/5**.
+
+**Traçabilité**
+
+Dans le cadre d'une application de simulation d'un joueur de tennis de table, il n'est pas essentiel d'avoir un historique des actions menées par le joueur et / ou ses adversaires. Il serait cependant intéressant pour lui de pouvoir consulter un historique de ses victoires / défaites avec les statistiques de sa raquette / de ses revêtements à chaque match afin qu'il puisse étudier quelle est la meilleure combinaison possible. C'est pour cette raison que j'estime que la traçabilité devrait être à **2/5**.
