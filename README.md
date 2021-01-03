@@ -64,6 +64,8 @@ Un Dockerfile est présent à la racine du projet et va permettre l'installation
 - Mysql
 - PHP
 
+Il installera également la base de données nécessaire au projet.
+
 Pour lancer le docker, il faudra **se positionner à la racine du projet** et lancer la commande suivante :
 
 ```
