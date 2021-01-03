@@ -76,6 +76,8 @@ L'application sera alors accessible via navigateur à l'adresse suivante :
 
 `127.0.0.1:8001/Pingme`
 
+**/!\ Attention :** seuls les caractères alphabétiques sont acceptés pour l'inscription. Il faudra donc vous nommer par exemple "Loic" au lieu de "Loïc".
+
 ## Sécurisation de l'application
 
 ### Diagramme Mermaid : Surface d'attaque
