@@ -80,3 +80,9 @@ Il faudra alors cliquer sur **Importer** et charger le script **pingme.sql** pr�
 L'application sera alors accessible via navigateur à l'adresse suivante :
 
 `127.0.0.1:8000/Ping-Me`
+
+## Sécurisation de l'application
+
+### Diagramme Mermaid : Surface d'attaque
+
+<img src="mermaid-diagram.png">
