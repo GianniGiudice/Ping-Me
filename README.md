@@ -102,6 +102,8 @@ En mettant alors n'importe quel mot de passe, il sera possible de se connecter �
 
 Cette faille est très dangereuse car permet à un utilisateur aux mauvaises intentions de se connecter sur n'importe quel compte à condition qu'il en connaisse l'identifiant / l'adresse mail.
 
+**NB :** Même si c'est un champ mail, il suffit de modifier le type du champ en **"text"** via l'inspecteur d'élément pour reproduire le bug.
+
 ##### Explication
 
 Dans notre code vulnérable, voici comment nous gérons la connexion d'un utilisateur :
