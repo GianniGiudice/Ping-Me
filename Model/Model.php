@@ -14,7 +14,7 @@ abstract class Model {
      * Exécute une requête SQL éventuellement paramétrée
      *
      * @param string $sql La requête SQL
-     * @param array $params Les valeurs associées à la requête
+     * @param ?array $params Les valeurs associées à la requête
      * @return PDOStatement Le résultat renvoyé par la requête
      */
     protected function executeRequest($sql, $params = null) {
@@ -36,8 +36,8 @@ abstract class Model {
     private function getDb() {
         if ($this->db == null) {
             // Création de la connexion
-            $this->db = new PDO('mysql:host=db;dbname=pingme;charset=utf8',
-                    'root', 'test', [
+            $this->db = new PDO('mysql:host=localhost;dbname=pingme;charset=utf8',
+                    'root', 'P=vPyjd,1', [
                         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
                     ]);
         }
