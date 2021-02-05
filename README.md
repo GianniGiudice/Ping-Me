@@ -78,6 +78,62 @@ L'application sera alors accessible via navigateur à l'adresse suivante :
 
 **/!\ Attention :** seuls les caractères alphabétiques sont acceptés pour l'inscription. Il faudra donc vous nommer par exemple "Loic" au lieu de "Loïc".
 
+## Deux applications différentes
+
+### Sécurisée
+
+### Vulnérable
+
+Une version vulnérable se situe sur la branche **vulnerable** et permet de
+
+#### La faille SQL
+
+La faille SQL volontairement intégrée à cette branche va consister à permettre à l'utilisateur de modifier une requête SQL via un champ input.
+
+On pourra par exemple créer un utilisateur dont le mail est test@test.com. Il sera possible de s'y connecter sans mettre le bon mot de passe en remplissant simplement le champ adresse mail par :
+
+```
+test@test.com';--
+```
+
+En mettant alors n'importe quel mot de passe, il sera possible de se connecter à ce compte. Cela fonctionne avec n'importe quelle adresse mail existante. 
+
+Cette faille est très dangereuse car permet à un utilisateur un peu vicieux de se connecter sur n'importe quel compte à condition qu'il en connaisse l'identifiant / l'adresse mail.
+
+##### Explication
+
+Dans notre code vulnérable, voici comment nous gérons la connexion d'un utilisateur :
+
+```
+$sql = "SELECT * FROM user WHERE email = '" . $mail_address . "' AND password = '" . $password . "'";
+$result = $this->executeRequest($sql);
+
+if ($result->rowCount() > 0) {
+    return true;
+}
+return false;
+```
+
+Et voici ce que donne ce code après l'entrée du pirate :
+
+```
+$sql = "SELECT * FROM user WHERE email = 'test@test.com';--' AND password = '" . $password . "'";
+$result = $this->executeRequest($sql);
+
+if ($result->rowCount() > 0) {
+    return true;
+}
+return false;
+```
+
+Ainsi, à cause des caractères '; la requête se termine et les caractères -- sont des commentaires en SQL et permettent d'ignorer la suite de la ligne.
+
+Le script généré va donc tout simplement récupérer un utilisateur en ne vérifiant que son adresse mail.
+
+##### Protection
+
+Pour contrer la faille SQL, il suffit heureusement de mettre en place ce qui est devenu la norme depuis l'arrivée de PDO : les requêtes préparées qui n'interprètent pas les caractères spéciaux. En utilisant des requêtes préparées, vous ne pourrez plus avoir à faire avec des failles SQL.
+
 ## Sécurisation de l'application
 
 ### Diagramme Mermaid : Surface d'attaque
