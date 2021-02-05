@@ -14,18 +14,10 @@ abstract class Model {
      * Exécute une requête SQL éventuellement paramétrée
      *
      * @param string $sql La requête SQL
-     * @param ?array $params Les valeurs associées à la requête
      * @return PDOStatement Le résultat renvoyé par la requête
      */
-    protected function executeRequest($sql, $params = null) {
-        if ($params == null) {
-            $result = $this->getDb()->query($sql); // exécution directe
-        }
-        else {
-            $result = $this->getDb()->prepare($sql);  // requête préparée
-            $result->execute($params);
-        }
-        return $result;
+    protected function executeRequest($sql) {
+        return $this->getDb()->query($sql);
     }
 
     /**

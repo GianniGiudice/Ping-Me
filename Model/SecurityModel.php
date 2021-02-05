@@ -10,8 +10,8 @@ class SecurityModel extends Model
      */
     public function userIsFree(string $mail_address): bool
     {
-        $sql = 'SELECT id FROM user WHERE email = ?';
-        $result = $this->executeRequest($sql, [ $mail_address ]);
+        $sql = "SELECT id FROM user WHERE email = '" . $mail_address . "'";
+        $result = $this->executeRequest($sql);
 
         return ($result->rowCount() == 0);
     }
@@ -21,10 +21,14 @@ class SecurityModel extends Model
      */
     public function register(array $data): void
     {
-        $sql = "INSERT INTO user (email, firstname, lastname, password, registration, connection) VALUES (?, ?, ?, ?, now(), ?)";
-        $this->executeRequest($sql, [
-            $data['email'], $data['firstname'], $data['lastname'], password_hash($data['password'], PASSWORD_DEFAULT), null
-        ]);
+        $sql = "INSERT INTO user (email, firstname, lastname, password, registration, connection) VALUES (
+                '" . $data['email'] . "', 
+                '" . $data['firstname'] . "', 
+                '" . $data['lastname'] . "', 
+                '" . $data['password'] . "', 
+                now(), 
+                null)";
+        $this->executeRequest($sql);
     }
 
     /**
@@ -34,11 +38,10 @@ class SecurityModel extends Model
      */
     public function login(string $mail_address, string $password)
     {
-        $sql = 'SELECT * FROM user WHERE email = ?';
-        $result = $this->executeRequest($sql, [ $mail_address ]);
-        $user = $result->fetch();
+        $sql = "SELECT * FROM user WHERE email = '" . $mail_address . "' AND password = '" . $password . "'";
+        $result = $this->executeRequest($sql);
 
-        if ($result->rowCount() > 0 && password_verify($password, $user['password'])) {
+        if ($result->rowCount() > 0) {
             return true;
         }
         return false;
@@ -50,8 +53,8 @@ class SecurityModel extends Model
      */
     public function getUser(string $mail_address)
     {
-        $sql = 'SELECT * FROM user WHERE email = ?';
-        $result = $this->executeRequest($sql, [ $mail_address ]);
+        $sql = "SELECT * FROM user WHERE email = '" . $mail_address . "'";
+        $result = $this->executeRequest($sql);
         return $result->fetch();
     }
 }
