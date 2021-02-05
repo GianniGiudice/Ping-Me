@@ -40,6 +40,7 @@ Ce projet a été créé **à partir de zéro et uniquement pour le projet de Cy
 - Création / modification des données de la raquette / des revêtements
 - Visualisation d'un ratio [ victoires - défaires ]
 - Affrontement avec d'autres joueurs
+- Envoi de messages via un Chat
 
 ### Technologies utilisées
 
@@ -102,7 +103,7 @@ En mettant alors n'importe quel mot de passe, il sera possible de se connecter �
 
 Cette faille est très dangereuse car permet à un utilisateur aux mauvaises intentions de se connecter sur n'importe quel compte à condition qu'il en connaisse l'identifiant / l'adresse mail.
 
-**NB :** Même si c'est un champ mail, il suffit de modifier le type du champ en **"text"** via l'inspecteur d'élément pour reproduire le bug.
+**NB :** Même si c'est un champ mail, il suffit de modifier le type du champ en **"text"** via l'inspecteur d'élément pour reproduire l'exploitation.
 
 ##### Explication
 
