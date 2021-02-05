@@ -9,12 +9,14 @@ class SecurityController
 {
     private $securityModel;
     private $userModel;
+    private $chatModel;
     private $securityService;
 
     public function __construct()
     {
         $this->securityModel = new SecurityModel();
         $this->userModel = new UserModel();
+        $this->chatModel = new ChatModel();
         $this->securityService = new SecurityService();
     }
 
@@ -49,6 +51,7 @@ class SecurityController
                     $_SESSION['black'] = $this->userModel->getBlackSide($_SESSION['racket']['id']);
                 }
                 $view->generate([
+                    'chat' => $this->chatModel->getAllMessages(),
                     'user' => $this->userModel->getUserWithID($_SESSION['user']['id']),
                     'others' => $this->userModel->getOtherUsers($_SESSION['user']['id'])
                 ]);
