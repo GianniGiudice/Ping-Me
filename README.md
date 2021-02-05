@@ -80,11 +80,13 @@ L'application sera alors accessible via navigateur à l'adresse suivante :
 
 ## Deux applications différentes
 
-### Sécurisée
+### Sécurisée - branche "main"
 
-### Vulnérable
+La version de base est la version **"sécurisée"** dans le sens où on ne pourra pas y exploiter les failles disponibles via la branche "vulnerable" dont je parle dans la partie suivante.
 
-Une version vulnérable se situe sur la branche **vulnerable** et permet de
+### Vulnérable - branche "vulnerable"
+
+Une version vulnérable se situe sur la branche **vulnerable** et permet de tester différentes failles possibles sur une application web développée en PHP.
 
 #### La faille SQL
 
@@ -98,7 +100,7 @@ test@test.com';--
 
 En mettant alors n'importe quel mot de passe, il sera possible de se connecter à ce compte. Cela fonctionne avec n'importe quelle adresse mail existante. 
 
-Cette faille est très dangereuse car permet à un utilisateur un peu vicieux de se connecter sur n'importe quel compte à condition qu'il en connaisse l'identifiant / l'adresse mail.
+Cette faille est très dangereuse car permet à un utilisateur aux mauvaises intentions de se connecter sur n'importe quel compte à condition qu'il en connaisse l'identifiant / l'adresse mail.
 
 ##### Explication
 
@@ -126,13 +128,25 @@ if ($result->rowCount() > 0) {
 return false;
 ```
 
-Ainsi, à cause des caractères '; la requête se termine et les caractères -- sont des commentaires en SQL et permettent d'ignorer la suite de la ligne.
+Ainsi, à cause des caractères **';** la requête se termine et les caractères **--** sont des commentaires en SQL et permettent d'ignorer la suite de la ligne.
 
 Le script généré va donc tout simplement récupérer un utilisateur en ne vérifiant que son adresse mail.
 
 ##### Protection
 
-Pour contrer la faille SQL, il suffit heureusement de mettre en place ce qui est devenu la norme depuis l'arrivée de PDO : les requêtes préparées qui n'interprètent pas les caractères spéciaux. En utilisant des requêtes préparées, vous ne pourrez plus avoir à faire avec des failles SQL.
+Pour contrer la faille SQL, il suffit heureusement de mettre en place ce qui est devenu la norme depuis l'arrivée de PDO : **les requêtes préparées** qui n'interprètent pas les caractères spéciaux. En utilisant des requêtes préparées, vous ne pourrez plus avoir à faire avec des failles SQL.
+
+#### Les mots de passe non cryptés
+
+##### Explication
+
+Un mot de passe non crypté en base de données est une vulnérabilité qui peut terriblement affecter les utilisateurs à la fois sur votre site mais également potentiellement sur d'autres applications. En effet, si un pirate parvient à accéder à votre base de données, il pourra récupérer les mots de passe de tous vos utilisateurs directement. Or, une grande partie des internautes utilise le même mot de passe pour plusieurs sites / applications. Une faille de ce type peut donc entraîner un effet domino. 
+
+##### Protection
+
+Pour crypter les mots de passe avant de les entrer en base, il existe de nombreuses méthodes différentes. Celle que j'ai utilisé est la méthode **password_hash** qui permet même de choisir l'algorithme que vous souhaitez utiliser pour crypter les mots de passe.
+
+Pour connecter votre utilisateur, il faudra alors utiliser la méthode **password_verify** en lui renseignant le hash et le mot de passe entré par l'utilisateur danss le formulaire de login.
 
 ## Sécurisation de l'application
 
