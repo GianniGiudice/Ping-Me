@@ -9,6 +9,28 @@
         echo '<p class="m-3"><span class="text-success"><i class="fas fa-check"></i> ' . $success . '</span></p>';
     }
     ?>
+
+    <div class="row mb-3">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h1>Discussions entre joueurs</h1>
+
+            <div class="bg-light rounded p-3">
+                <?php
+                foreach ($chat as $message) {
+                    ?>
+                    <p><b><?= $message['author'] ?></b> >> <?= $message['message'] ?></p>
+                    <?php
+                }
+                ?>
+                <form action="index.php?action=chat" method="post">
+                    <input class="mt-3" type="text" name="message" placeholder="Message"><input type="submit" name="send" value="Envoyer">
+                </form>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
     <div class="row">
         <div class="col-md-4">
             <div class="card mb-3 bg-ping">

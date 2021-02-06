@@ -3,6 +3,7 @@
 require_once 'Controller/HomeController.php';
 require_once 'Controller/SecurityController.php';
 require_once 'Controller/UserController.php';
+require_once 'Controller/ChatController.php';
 require_once 'View/View.php';
 
 class Router
@@ -10,12 +11,14 @@ class Router
     private $homeController;
     private $securityController;
     private $userController;
+    private $chatController;
 
     public function __construct()
     {
         $this->homeController = new HomeController();
         $this->securityController = new SecurityController();
         $this->userController = new UserController();
+        $this->chatController = new ChatController();
     }
 
     // Route une requête entrante : exécution l'action associée
@@ -42,6 +45,9 @@ class Router
             else {
                 if (isset($_GET['action'])) {
                     switch ($_GET['action']) {
+                        case 'chat':
+                            $this->chatController->send();
+                            break;
                         case 'atelier':
                             $this->userController->workshop();
                             break;

@@ -2,18 +2,21 @@
 
 require_once 'View/View.php';
 require_once 'Model/UserModel.php';
+require_once 'Model/ChatModel.php';
 require_once 'Service/WorkshopService.php';
 require_once 'Service/CompetitionService.php';
 
 class UserController
 {
     private $userModel;
+    private $chatModel;
     private $workshopService;
     private $competitionService;
 
     public function __construct()
     {
         $this->userModel = new UserModel();
+        $this->chatModel = new ChatModel();
         $this->workshopService = new WorkshopService();
         $this->competitionService = new CompetitionService();
     }
@@ -22,6 +25,7 @@ class UserController
     {
         $view = new View('UserHome');
         $view->generate([
+            'chat' => $this->chatModel->getAllMessages(),
             'user' => $this->userModel->getUserWithID($_SESSION['user']['id']),
             'others' => $this->userModel->getOtherUsers($_SESSION['user']['id'])
         ]);
@@ -45,6 +49,7 @@ class UserController
             $view = new View('UserHome');
             $view->generate([
                 'success' => $this->workshopService->getSuccess(),
+                'chat' => $this->chatModel->getAllMessages(),
                 'user' => $this->userModel->getUserWithID($_SESSION['user']['id']),
                 'others' => $this->userModel->getOtherUsers($_SESSION['user']['id'])
             ]);
@@ -53,6 +58,7 @@ class UserController
             $view = new View('UserHome');
             $view->generate([
                 'error' => $this->workshopService->getError(),
+                'chat' => $this->chatModel->getAllMessages(),
                 'user' => $this->userModel->getUserWithID($_SESSION['user']['id']),
                 'others' => $this->userModel->getOtherUsers($_SESSION['user']['id'])
             ]);
@@ -68,6 +74,7 @@ class UserController
             if ($this->competitionService->getFightResult() == 'VICTOIRE') {
                 $array = [
                     'success' => 'Vous remportez le match.',
+                    'chat' => $this->chatModel->getAllMessages(),
                     'user' => $this->userModel->getUserWithID($_SESSION['user']['id']),
                     'others' => $others
                 ];
@@ -75,6 +82,7 @@ class UserController
             else {
                 $array = [
                     'danger' => 'Vous perdez le match.',
+                    'chat' => $this->chatModel->getAllMessages(),
                     'user' => $this->userModel->getUserWithID($_SESSION['user']['id']),
                     'others' => $others
                 ];
@@ -86,6 +94,7 @@ class UserController
             $view = new View('UserHome');
             $view->generate([
                 'error' => $this->competitionService->getError(),
+                'chat' => $this->chatModel->getAllMessages(),
                 'user' => $this->userModel->getUserWithID($_SESSION['user']['id']),
                 'others' => $this->userModel->getOtherUsers($_SESSION['user']['id'])
             ]);
