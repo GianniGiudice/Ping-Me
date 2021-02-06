@@ -89,9 +89,9 @@ La version de base est la version **"sécurisée"** dans le sens où on ne pourr
 
 Une version vulnérable se situe sur la branche **vulnerable** et permet de tester différentes failles possibles sur une application web développée en PHP.
 
-#### La faille SQL
+#### L'injection SQL
 
-La faille SQL volontairement intégrée à cette branche va consister à permettre à l'utilisateur de modifier une requête SQL via un champ input.
+La faille d'injection SQL volontairement intégrée à cette branche va consister à permettre à l'utilisateur de modifier une requête SQL via un champ input.
 
 On pourra par exemple créer un utilisateur dont le mail est test@test.com. Il sera possible de s'y connecter sans mettre le bon mot de passe en remplissant simplement le champ adresse mail par :
 
@@ -150,6 +150,38 @@ Un mot de passe non crypté en base de données est une vulnérabilité qui peut
 Pour crypter les mots de passe avant de les entrer en base, il existe de nombreuses méthodes différentes. Celle que j'ai utilisé est la méthode **password_hash** qui permet même de choisir l'algorithme que vous souhaitez utiliser pour crypter les mots de passe.
 
 Pour connecter votre utilisateur, il faudra alors utiliser la méthode **password_verify** en lui renseignant le hash et le mot de passe entré par l'utilisateur danss le formulaire de login.
+
+
+#### La faille XSS
+
+La faille XSS volontairement intégrée via le Chat du site va par exemple permettre au pirate d'intégrer un script au site qui s'exécutera sur la page de tout utilisateur qui visitera la page où est affiché le Chat.
+
+##### Explication
+
+Dans notre code vulnérable, nous affichons tel quel ce que les utilisateurs entrent dans le champ input. 
+Un pirate peut donc en profiter pour envoyer ce genre de message :
+
+```
+<b>Bonjour</b>
+```
+
+Comme nous affichons telle quelle l'information, le pirate aura réussi à.. afficher son message en gras. Rien de bien grave mais s'il peut intégrer du code via votre formulaire, il pourra également entrer ce genre de message :
+
+```
+<script>alert("Hello");</script>
+```
+
+Et oui, le code javascript sera effectué à chaque visite de la page. Ainsi, le pirate aura réussi à afficher une pop up à chaque fois qu'un utilisateur visitera la page où le Chat est affiché, à savoir la page d'accueil.. Assez dérangeant donc.
+
+Et les choses peuvent aller bien plus loin car s'il parvient à insérer du code javascript, il pourrait alors très bien récupérer des cookies de session, rediriger l'utilisateur vers un site pirate, etc..
+
+Les possibilités sont très nombreuses et potentiellement destructrices.
+
+C'est pour cela que cette faille n'est pas à prendre à la légère. Heureusement, elle se comble facilement.
+
+##### Protection
+
+En PHP, pour prévenir ce genre de faille, il suffit d'utiliser la méthode **htmlentities** ou encore la méthode **htmlspecialchars** qui vont encoder les caractères spéciaux avant de les intégrer à la page, rendant ainsi les balises non interprétables.
 
 ## Sécurisation de l'application
 
