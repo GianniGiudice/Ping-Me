@@ -64,6 +64,7 @@ Un Dockerfile est présent à la racine du projet et va permettre l'installation
 - Apache
 - Mysql
 - PHP
+- PHPUnit
 
 Il installera également la base de données nécessaire au projet.
 
