@@ -189,6 +189,16 @@ En PHP, pour prévenir ce genre de faille, il suffit d'utiliser la méthode **ht
 <?= htmlentities($message['message']) ?>
 ```
 
+## Tests et exploits
+
+Un dossier **tests** et un dossier **exploits** sont disponibles à la racine de projet et contiennent les tests unitaires ainsi que leurs exploitations.
+
+Pour lancer les tests, il faut lancer la commande suivante :
+
+```
+vendor/bin/phpunit tests/*
+```
+
 ## Sécurisation de l'application
 
 ### Diagramme Mermaid : Surface d'attaque
