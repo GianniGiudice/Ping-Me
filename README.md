@@ -183,6 +183,11 @@ C'est pour cela que cette faille n'est pas à prendre à la légère. Heureuseme
 
 En PHP, pour prévenir ce genre de faille, il suffit d'utiliser la méthode **htmlentities** ou encore la méthode **htmlspecialchars** qui vont encoder les caractères spéciaux avant de les intégrer à la page, rendant ainsi les balises non interprétables.
 
+
+```
+<?= htmlentities($message['message']) ?>
+```
+
 ## Sécurisation de l'application
 
 ### Diagramme Mermaid : Surface d'attaque
