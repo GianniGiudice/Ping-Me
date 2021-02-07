@@ -21,7 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="50847f85-b945-427b-9ebe-991c3625eef1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/ChatModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/ChatModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/ChatModelTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ChatModelTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phpunit/phpunit/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpunit/phpunit/.phpunit.result.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

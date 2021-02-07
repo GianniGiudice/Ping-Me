@@ -17,4 +17,9 @@ class ChatModelTest extends TestCase
     {
         $this->assertSame(1, $this->chatModel->send(1, ['message' => 'Test']));
     }
+
+    public function testXSSSend()
+    {
+        $this->assertSame(1, $this->chatModel->send(1, ['message' => '<script>alert("HOLA")</script>']));
+    }
 }
