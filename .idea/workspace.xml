@@ -21,10 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="50847f85-b945-427b-9ebe-991c3625eef1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/Router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/UserHomeView.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/UserHomeView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ChatModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/ChatModel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,10 +108,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="743" y="311" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1610529489529" />
-    <state x="754" y="273" width="441" height="568" key="NewPhpClassDialog" timestamp="1612637146860">
+    <state x="754" y="273" width="441" height="568" key="NewPhpClassDialog" timestamp="1612720602646">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="754" y="273" width="441" height="568" key="NewPhpClassDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1612637146860" />
+    <state x="754" y="273" width="441" height="568" key="NewPhpClassDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1612720602646" />
     <state x="755" y="479" width="399" height="156" key="NewPhpFileDialog" timestamp="1609628862227">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>

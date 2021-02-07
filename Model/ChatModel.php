@@ -11,16 +11,19 @@ class ChatModel extends Model
     {
         $this->userModel = new UserModel();
     }
+
     /**
      * @param int $user_id
      * @param array $data
+     * @return int
      */
-    public function send(int $user_id, array $data): void
+    public function send(int $user_id, array $data): int
     {
         $user = $this->userModel->getUserWithID($user_id);
         $name = $user['firstname'] . ' ' . $user['lastname'];
         $sql = "INSERT INTO chat (author, message) VALUES ('" . $name . "', '" . $data['message'] . "')";
-        $this->executeRequest($sql);
+        $res = $this->executeRequest($sql);
+        return $res->rowCount();
     }
 
     /**
