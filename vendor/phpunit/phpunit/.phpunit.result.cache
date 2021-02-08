@@ -1,1 +1,1 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":125:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:2:{s:23:"ChatModelTest::testSend";d:0.006;s:26:"ChatModelTest::testXSSSend";d:0.004;}}}
+C:37:"PHPUnit\Runner\DefaultTestResultCache":125:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:2:{s:23:"ChatModelTest::testSend";d:0.008;s:26:"ChatModelTest::testXSSSend";d:0.004;}}}
