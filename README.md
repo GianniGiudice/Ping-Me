@@ -195,7 +195,7 @@ En PHP, pour prévenir ce genre de faille, il suffit d'utiliser la méthode **ht
 
 ## Tests et exploits
 
-Un dossier **tests** et un dossier **exploits** sont disponibles à la racine de projet et contiennent les tests unitaires ainsi que leurs exploitations.
+Un dossier **tests** et un dossier **exploits** sont disponibles à la racine de projet (**Note :** Uniquement sur la branche [vulnerable](https://github.com/GianniGiudice/Ping-Me/tree/vulnerable)) et contiennent les tests unitaires ainsi que leurs exploitations.
 
 Pour lancer les tests, il faut lancer la commande suivante :
 
