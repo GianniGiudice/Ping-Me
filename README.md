@@ -64,6 +64,7 @@ Un Dockerfile est présent à la racine du projet et va permettre l'installation
 - Apache
 - Mysql
 - PHP
+- PHPUnit
 
 Il installera également la base de données nécessaire au projet.
 
@@ -81,17 +82,21 @@ L'application sera alors accessible via navigateur à l'adresse suivante :
 
 ## Deux applications différentes
 
-### Sécurisée - branche "main"
+### Sécurisée
+
+Branche « [main](https://github.com/GianniGiudice/Ping-Me/tree/main) »
 
 La version de base est la version **"sécurisée"** dans le sens où on ne pourra pas y exploiter les failles disponibles via la branche "vulnerable" dont je parle dans la partie suivante.
 
-### Vulnérable - branche "vulnerable"
+### Vulnérable
+
+Branche « [vulnerable](https://github.com/GianniGiudice/Ping-Me/tree/vulnerable) »
 
 Une version vulnérable se situe sur la branche **vulnerable** et permet de tester différentes failles possibles sur une application web développée en PHP.
 
-#### La faille SQL
+#### L'injection SQL
 
-La faille SQL volontairement intégrée à cette branche va consister à permettre à l'utilisateur de modifier une requête SQL via un champ input.
+La faille d'injection SQL volontairement intégrée à cette branche va consister à permettre à l'utilisateur de modifier une requête SQL via un champ input.
 
 On pourra par exemple créer un utilisateur dont le mail est test@test.com. Il sera possible de s'y connecter sans mettre le bon mot de passe en remplissant simplement le champ adresse mail par :
 
@@ -109,7 +114,7 @@ Cette faille est très dangereuse car permet à un utilisateur aux mauvaises int
 
 Dans notre code vulnérable, voici comment nous gérons la connexion d'un utilisateur :
 
-```
+```php
 $sql = "SELECT * FROM user WHERE email = '" . $mail_address . "' AND password = '" . $password . "'";
 $result = $this->executeRequest($sql);
 
@@ -121,7 +126,7 @@ return false;
 
 Et voici ce que donne ce code après l'entrée du pirate :
 
-```
+```php
 $sql = "SELECT * FROM user WHERE email = 'test@test.com';--' AND password = '" . $password . "'";
 $result = $this->executeRequest($sql);
 
@@ -151,6 +156,53 @@ Pour crypter les mots de passe avant de les entrer en base, il existe de nombreu
 
 Pour connecter votre utilisateur, il faudra alors utiliser la méthode **password_verify** en lui renseignant le hash et le mot de passe entré par l'utilisateur danss le formulaire de login.
 
+
+#### La faille XSS
+
+La faille XSS volontairement intégrée via le Chat du site va par exemple permettre au pirate d'intégrer un script au site qui s'exécutera sur la page de tout utilisateur qui visitera la page où est affiché le Chat.
+
+##### Explication
+
+Dans notre code vulnérable, nous affichons tel quel ce que les utilisateurs entrent dans le champ input. 
+Un pirate peut donc en profiter pour envoyer ce genre de message :
+
+```html
+<b>Bonjour</b>
+```
+
+Comme nous affichons telle quelle l'information, le pirate aura réussi à.. afficher son message en gras. Rien de bien grave mais s'il peut intégrer du code via votre formulaire, il pourra également entrer ce genre de message :
+
+```javascript
+<script>alert("Hello");</script>
+```
+
+Et oui, le code javascript sera effectué à chaque visite de la page. Ainsi, le pirate aura réussi à afficher une pop up à chaque fois qu'un utilisateur visitera la page où le Chat est affiché, à savoir la page d'accueil.. Assez dérangeant donc.
+
+Et les choses peuvent aller bien plus loin car s'il parvient à insérer du code javascript, il pourrait alors très bien récupérer des cookies de session, rediriger l'utilisateur vers un site pirate, etc..
+
+Les possibilités sont très nombreuses et potentiellement destructrices.
+
+C'est pour cela que cette faille n'est pas à prendre à la légère. Heureusement, elle se comble facilement.
+
+##### Protection
+
+En PHP, pour prévenir ce genre de faille, il suffit d'utiliser la méthode **htmlentities** ou encore la méthode **htmlspecialchars** qui vont encoder les caractères spéciaux avant de les intégrer à la page, rendant ainsi les balises non interprétables.
+
+
+```php
+<?= htmlentities($message['message']) ?>
+```
+
+## Tests et exploits
+
+Un dossier **tests** et un dossier **exploits** sont disponibles à la racine de projet et contiennent les tests unitaires ainsi que leurs exploitations.
+
+Pour lancer les tests, il faut lancer la commande suivante :
+
+```
+vendor/bin/phpunit tests/*
+```
+
 ## Sécurisation de l'application
 
 ### Diagramme Mermaid : Surface d'attaque
@@ -159,18 +211,6 @@ Pour connecter votre utilisateur, il faudra alors utiliser la méthode **passwor
 
 ### Les critères DICT
 
-**Disponibilité**
-
-Il n'y a aucune information visible de la part d'un joueur sur les autres joueurs du jeu. Il peut uniquement voir la liste des autres joueurs ainsi que leur ratio [victoires - défaites]. Ce dernier pouvant indiquer si un joueur est plutôt fort ou faible, cela peut être intéressant pour le choix d'adversaire lors d'une compétition. J'estime donc que la disponibilité devrait être à **1/5**.
-
-**Intégrité**
-
-Il est très important pour un joueur que ses données (notamment le matériel) ainsi que celles des autres joueurs (ratio compétition) restent inchangées et exactes car ayant peu d'informations, il est primordial que celles-ci soient les bonnes. J'estime donc que l'intégrité devrait être à **5/5**.
-
-**Confidentialité**
-
-Il est important pour un joueur de ne pas voir ses informations sur son équipement actuel dévoilées aux autres joueurs. Il serait alors trop facile aux joueurs de choisir leurs adversaires en prenant les combinaisons les plus faibles. C'est pour cette raison que j'estime que la confidentialité devrait être à **4/5**.
-
-**Traçabilité**
-
-Dans le cadre d'une application de simulation d'un joueur de tennis de table, il n'est pas essentiel d'avoir un historique des actions menées par le joueur et / ou ses adversaires. Il serait cependant intéressant pour lui de pouvoir consulter un historique de ses victoires / défaites avec les statistiques de sa raquette / de ses revêtements à chaque match afin qu'il puisse étudier quelle est la meilleure combinaison possible. C'est pour cette raison que j'estime que la traçabilité devrait être à **2/5**.
+|  Disponibilité - **1/5**  |  Intégrité - **5/5**  |  Confidentialité - **4/5**  |  Traçabilité - **2/5**  |
+|-----------------|-------------|-------------------|---------------|
+|  Il n'y a aucune information visible de la part d'un joueur sur les autres joueurs du jeu. Il peut uniquement voir la liste des autres joueurs ainsi que leur ratio [victoires - défaites]. Ce dernier pouvant indiquer si un joueur est plutôt fort ou faible, cela peut être intéressant pour le choix d'adversaire lors d'une compétition.  |  Il est très important pour un joueur que ses données (notamment le matériel) ainsi que celles des autres joueurs (ratio compétition) restent inchangées et exactes car ayant peu d'informations, il est primordial que celles-ci soient les bonnes.  |  Il est important pour un joueur de ne pas voir ses informations sur son équipement actuel dévoilées aux autres joueurs. Il serait alors trop facile aux joueurs de choisir leurs adversaires en prenant les combinaisons les plus faibles.  |  Dans le cadre d'une application de simulation d'un joueur de tennis de table, il n'est pas essentiel d'avoir un historique des actions menées par le joueur et / ou ses adversaires. Il serait cependant intéressant pour lui de pouvoir consulter un historique de ses victoires / défaites avec les statistiques de sa raquette / de ses revêtements à chaque match afin qu'il puisse étudier quelle est la meilleure combinaison possible.  |
