@@ -2,7 +2,7 @@
 
 # Ping-Me
 
-## Contexte
+## 1) Contexte
 
 ### Explications / Présentation
 
@@ -25,7 +25,7 @@ Le sujet est le suivant : création d'un site web volontairement vulnérable (**
 - Le fichier README.md doit faire apparaitre un **graph mermaidjs** avec la surface d'attaque
 - Un fichier Excel avec la même **analyse de sécurité** que le premier TP doit aussi apparaitre.
 
-## Présentation du projet
+## 2) Présentation du projet
 
 ### Description
 
@@ -52,7 +52,7 @@ Le site se lance via **apache**.
 
 Ayant l'habitude de développer sous Symfony (framework PHP), je me suis rapidement dirigé vers ce choix car c'est avant tout un sujet sur le cybersécurité et non sur le développement en soit. (je voulais donc une **technologie sur laquelle j'étais le plus à l'aise**) J'ai délaissé le framework Symfony pour ce projet car beaucoup de failles sont comblées / empêchées par le framework. En PHP natif, créer des failles est beaucoup plus simple et approprié.
 
-## Installation et utilisation
+## 3) Installation et utilisation
 
 ### Installation
 
@@ -80,7 +80,7 @@ L'application sera alors accessible via navigateur à l'adresse suivante :
 
 **/!\ Attention :** seuls les caractères alphabétiques sont acceptés pour l'inscription. Il faudra donc vous nommer par exemple "Loic" au lieu de "Loïc".
 
-## Deux applications différentes
+## 4) Deux applications différentes
 
 ### Sécurisée
 
@@ -193,7 +193,7 @@ En PHP, pour prévenir ce genre de faille, il suffit d'utiliser la méthode **ht
 <?= htmlentities($message['message']) ?>
 ```
 
-## Tests et exploits
+## 5) Tests et exploits
 
 Un dossier **tests** et un dossier **exploits** sont disponibles à la racine de projet (**Note :** Uniquement sur la branche [vulnerable](https://github.com/GianniGiudice/Ping-Me/tree/vulnerable)) et contiennent les tests unitaires ainsi que leurs exploitations.
 
@@ -203,7 +203,7 @@ Pour lancer les tests, il faut lancer la commande suivante :
 vendor/bin/phpunit tests/*
 ```
 
-## Sécurisation de l'application
+## 6) Sécurisation de l'application
 
 ### Diagramme Mermaid : Surface d'attaque
 
