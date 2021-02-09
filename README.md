@@ -199,6 +199,8 @@ L'application n'est accessible qu'en http et non en **https**. Qu'est-ce que cel
 
 C'est une faille très dangereuse sur un réseau public.
 
+<p align="center"><img src="https://www.digitom.fr/wp-content/uploads/2019/01/SSL-Schema.png"></p>
+
 Pour la combler, il suffit donc de passer son site en https. Pour cela, il faut **acheter un certificat SSL**, l'installer sur votre serveur et rediriger votre site sur le **port 443**. (contre 80 en http)
 
 ## 5) Tests et exploits
