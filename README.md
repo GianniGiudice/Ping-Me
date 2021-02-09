@@ -193,6 +193,12 @@ En PHP, pour prévenir ce genre de faille, il suffit d'utiliser la méthode **ht
 <?= htmlentities($message['message']) ?>
 ```
 
+#### La faille http (pas de certificat SSL)
+
+L'application n'est accessible qu'en http et non en **https**. Qu'est-ce que cela implique ? Lorsque l'on intègre un **certificat SSL** à un site et qu'on le passe en https, toutes les requêtes sont **cryptées**. A l'inverse, en http, les informations des requêtes passent en clair sur le réseau. Il est alors par exemple possible de **sniffer** le réseau et de récupérer un mot de passe en clair lorsqu'un utilisateur se connecte à un site en http via le même réseau que nous. 
+
+C'est une faille très dangereuse sur un réseau public.
+
 ## 5) Tests et exploits
 
 Un dossier **tests** et un dossier **exploits** sont disponibles à la racine de projet (**Note :** Uniquement sur la branche [vulnerable](https://github.com/GianniGiudice/Ping-Me/tree/vulnerable)) et contiennent les tests unitaires ainsi que leurs exploitations.
