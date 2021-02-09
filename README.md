@@ -27,6 +27,8 @@ Le sujet est le suivant : création d'un site web volontairement vulnérable (**
 
 ## 2) Présentation du projet
 
+<img src="Public/Images/slider.jpg" align="center"> 
+
 ### Description
 
 Ping-Me est un Site Web sur le thème du Tennis de Table. Il représente l'ébauche d'un **simulateur de compétition de Tennis de Table**.
@@ -53,6 +55,10 @@ Le site se lance via **apache**.
 Ayant l'habitude de développer sous Symfony (framework PHP), je me suis rapidement dirigé vers ce choix car c'est avant tout un sujet sur le cybersécurité et non sur le développement en soit. (je voulais donc une **technologie sur laquelle j'étais le plus à l'aise**) J'ai délaissé le framework Symfony pour ce projet car beaucoup de failles sont comblées / empêchées par le framework. En PHP natif, créer des failles est beaucoup plus simple et approprié.
 
 ## 3) Installation et utilisation
+
+<p align="center">
+   <img src="https://i1.wp.com/ledatascientist.com/wp-content/uploads/2020/01/docker_logo.png?fit=601%2C431&ssl=1">
+</p>
 
 ### Installation
 
@@ -81,6 +87,10 @@ L'application sera alors accessible via navigateur à l'adresse suivante :
 **/!\ Attention :** seuls les caractères alphabétiques sont acceptés pour l'inscription. Il faudra donc vous nommer par exemple "Loic" au lieu de "Loïc".
 
 ## 4) Deux applications différentes
+
+<p align="center">
+   <img src="https://redsandfinancial.com/storage/temp/public/cd2/994/adb/Unsecured-Funding-vs-secured__642.png">
+</p>
 
 ### Sécurisée
 
@@ -204,6 +214,12 @@ C'est une faille très dangereuse sur un réseau public.
 Pour la combler, il suffit donc de passer son site en https. Pour cela, il faut **acheter un certificat SSL**, l'installer sur votre serveur et rediriger votre site sur le **port 443**. (contre 80 en http)
 
 ## 5) Tests et exploits
+
+<p align="center">
+   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/PHPUnit_Logo.svg/1200px-PHPUnit_Logo.svg.png">
+</p>
+
+Pour les tests unitaires, le framework **PHP Unit** est utilisé.
 
 Un dossier **tests** et un dossier **exploits** sont disponibles à la racine de projet (**Note :** Uniquement sur la branche [vulnerable](https://github.com/GianniGiudice/Ping-Me/tree/vulnerable)) et contiennent les tests unitaires ainsi que leurs exploitations.
 
