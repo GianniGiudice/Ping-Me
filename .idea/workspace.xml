@@ -19,9 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50847f85-b945-427b-9ebe-991c3625eef1" name="Default Changelist" comment="">
+    <list default="true" id="80d38027-2cc6-401a-bf34-36c040e70e46" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/pingme.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/pingme.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +90,12 @@
       <recent name="$PROJECT_DIR$/Model" />
       <recent name="$PROJECT_DIR$/Controller" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ComposerRunConfigurationType" factoryName="Composer Script">
+      <option name="pathToComposerJson" value="$PROJECT_DIR$/composer.json" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -160,10 +166,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="755" y="479" width="399" height="156" key="NewPhpFileDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1609628862227" />
-    <state x="651" y="292" width="618" height="522" key="find.popup" timestamp="1612548312634">
+    <state x="651" y="292" width="618" height="522" key="find.popup" timestamp="1612970945165">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="651" y="292" width="618" height="522" key="find.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1612548312634" />
+    <state x="651" y="292" width="618" height="522" key="find.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1612970945165" />
     <state x="624" y="252" key="run.anything.popup" timestamp="1609520789379">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
