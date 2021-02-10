@@ -92,28 +92,15 @@ CREATE TABLE `chat` (
   `id` int NOT NULL,
   `author` varchar(255) NOT NULL,
   `message` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Index pour les tables déchargées
 --
 
 --
--- Index pour la table `chat`
---
-ALTER TABLE `chat`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT pour les tables déchargées
 --
-
---
--- AUTO_INCREMENT pour la table `chat`
---
-ALTER TABLE `chat`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-COMMIT;
 
 --
 -- Index pour les tables déchargées
@@ -147,6 +134,12 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -172,6 +165,13 @@ ALTER TABLE `red_side`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+--
+-- AUTO_INCREMENT pour la table `chat`
+--
+ALTER TABLE `chat`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 COMMIT;
 
